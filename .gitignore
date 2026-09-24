@@ -1,0 +1,81 @@
+# ==============================================================================
+# .gitignore for Gym Management System (PHP / MySQL / Apache)
+# ==============================================================================
+
+# Environment and sensitive configuration files
+.env
+.env.*
+!.env.example
+config/database.local.php
+config/secrets.php
+
+# AWS / Cloud credentials & private keys
+*.pem
+*.key
+*.pub
+*.cert
+*.crt
+credentials.json
+aws-credentials*
+id_rsa*
+
+# Database dumps, local backups & sqlite
+*.sql.gz
+*.sql.zip
+*.dump
+*.sqlite
+*.sqlite3
+*.db
+!database/schema.sql
+
+# Logs and debugging
+*.log
+error_log
+logs/
+access_log
+
+# PHP Composer & packages (if added in future)
+/vendor/
+composer.phar
+
+# Temporary / cache files
+tmp/
+temp/
+cache/
+*.tmp
+
+# Operating System files
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+
+# IDEs & Text Editors
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.project
+.buildpath
+.settings/
+nbproject/
+*.swp
+*.swo
+
+# Archive / Compression files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
