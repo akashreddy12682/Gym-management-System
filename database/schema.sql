@@ -196,10 +196,12 @@ INSERT INTO `members` (`id`, `user_id`, `gender`, `dob`, `address`, `emergency_c
 
 -- Insert Membership Plans
 INSERT INTO `membership_plans` (`id`, `plan_name`, `duration_days`, `price`, `description`, `status`) VALUES
-(1, 'Monthly Starter', 30, 40.00, 'Standard gym floor access, locker access, and basic orientation session.', 'active'),
-(2, 'Quarterly Fitness', 90, 100.00, 'Full gym access, shower amenities, 1 complimentary trainer evaluation.', 'active'),
-(3, 'Half-Yearly Pro', 180, 180.00, 'Unlimited floor access, sauna/steam bath access, personalized workout sheet.', 'active'),
-(4, 'Annual Elite VIP', 365, 320.00, 'VIP access, personal locker, dedicated trainer consultation, and diet plans.', 'active');
+(1, 'Monthly Starter', 30, 1000.00, 'Standard gym floor access, locker access, and basic orientation session.', 'active'),
+(2, 'Quarterly Fitness', 90, 2500.00, 'Full gym access, shower amenities, 1 complimentary trainer evaluation.', 'active'),
+(3, 'Half-Yearly Pro', 180, 4500.00, 'Unlimited floor access, sauna/steam bath access, personalized workout sheet.', 'active'),
+(4, 'Annual Elite VIP', 365, 8000.00, 'VIP access, personal locker, dedicated trainer consultation, and diet plans.', 'active');
+
+
 
 -- Insert Memberships
 INSERT INTO `memberships` (`id`, `member_id`, `plan_id`, `start_date`, `end_date`, `status`) VALUES

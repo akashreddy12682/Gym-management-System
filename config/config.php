@@ -15,25 +15,17 @@ define('APP_TAGLINE', 'Elite Fitness & Member Management');
 define('APP_VERSION', '1.0.0');
 define('CURRENCY_SYMBOL', '$'); // Can be changed to ₹ or € as needed
 
-// Automatically compute BASE_URL dynamically
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)) ? "https://" : "http://";
+
+// Set the application base URL
+$protocol = (
+    !empty($_SERVER['HTTPS']) &&
+    $_SERVER['HTTPS'] !== 'off'
+) ? 'https://' : 'http://';
+
 $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
 
-// Determine subfolder path
-$scriptName = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
-// Normalize path: find root directory of gym-management-system if nested
-$pathSegments = explode('/', trim($scriptName, '/'));
-$baseSegments = [];
-foreach ($pathSegments as $segment) {
-    $baseSegments[] = $segment;
-    if ($segment === 'gym-management-system') {
-        break;
-    }
-}
-$basePath = !empty($baseSegments) ? '/' . implode('/', $baseSegments) : '';
-if ($basePath === '/') $basePath = '';
+define('BASE_URL', $protocol . $host);
 
-define('BASE_URL', $protocol . $host . $basePath);
 
 // Flash Message Helpers
 function set_flash($type, $message) {
@@ -70,4 +62,9 @@ function verify_csrf_token($token) {
         return false;
     }
     return hash_equals($_SESSION['csrf_token'], $token);
+}
+
+// Format amounts in Indian Rupees
+function formatCurrency($amount) {
+    return '₹' . number_format((float)$amount, 2);
 }

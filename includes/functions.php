@@ -35,7 +35,7 @@ function format_time($timeStr, $format = 'h:i A') {
 
 // Format currency
 function format_currency($amount) {
-    return CURRENCY_SYMBOL . number_format((float)$amount, 2);
+  return '₹' . number_format($amount, 2);;
 }
 
 // Return Bootstrap badge HTML based on status string
